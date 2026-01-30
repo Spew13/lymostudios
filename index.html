@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#32FF00">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lymostudios.com/">
+<meta property="og:title" content="LYMO STUDIOS 🟢 [ONLINE]">
+<meta property="og:description" content="// ACCESSING VR ARCHIVES... Explore immersive digital worlds and neon-drenched design. Experience the future of the spatial web.">
+
+<meta property="og:image" content="https://lymostudios.com/your-cool-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta property="og:site_name" content="LYMO_INTERNAL_SYSTEM">
+    <title>Lymo Studios | VR & Design</title>
+    <style>
+        :root {
+            --lime: #32FF00;
+            --dark: #0a0a0a;
+            --glow: 0 0 15px #32FF00, 0 0 30px #32FF00;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Animated Glowing Header */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--lime);
+            text-transform: uppercase;
+            text-shadow: var(--glow);
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.8; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* Content Sections */
+        .section {
+            width: 80%;
+            max-width: 900px;
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lime-border {
+            border-left: 4px solid var(--lime);
+            padding-left: 20px;
+            box-shadow: -10px 0 15px -10px var(--lime);
+        }
+
+        /* VR Section Magic */
+        .vr-box {
+            background: rgba(50, 255, 0, 0.05);
+            border: 1px solid var(--lime);
+            padding: 40px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vr-box::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(50, 255, 0, 0.2), transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            border: 2px solid var(--lime);
+            color: var(--lime);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--lime);
+            color: black;
+            box-shadow: var(--glow);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lymo Studios</h1>
+        <p style="color: #888;">[ DIGITAL ARCHITECT & VR EXPLORER ]</p>
+        <a href="#about" class="btn">ENTER SYSTEM</a>
+    </header>
+
+    <section id="about" class="section lime-border">
+        <h2>// ABOUT ME</h2>
+        <p>I'm a creator focused on pushing the limits of digital spaces. Whether it's web development, graphic design, or immersive worlds, I build with a "performance-first" mindset and a neon-drenched aesthetic.</p>
+    </section>
+
+    <section class="section">
+        <div class="vr-box">
+            <h2>// WHY VR?</h2>
+            <p>Virtual Reality isn't just a screen on your face; it's the ultimate canvas. I love VR because it breaks the "fourth wall" of the internet. You aren't just looking at data; you're standing inside it.</p>
+            <ul>
+                <li><strong>Infinite Perspective:</strong> No more 2D boundaries.</li>
+                <li><strong>Immersive Storytelling:</strong> Feeling the scale of a world.</li>
+                <li><strong>The Future:</strong> Building the "Spatial Web" is where the real magic happens.</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Simple scroll animation trigger
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
